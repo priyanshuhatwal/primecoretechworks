@@ -43,7 +43,7 @@ const Footer = () => {
           {/* SOCIAL */}
           <div className="space-y-3">
             <h3 className="font-semibold text-white">Social Media</h3>
-            <a className="flex items-center justify-center sm:justify-start gap-2 hover:text-purple-400 transition">
+            <a href="https://www.instagram.com/primecore_it?igsh=MTlhMWl6MG5hNm45Ng==" className="flex items-center justify-center sm:justify-start gap-2 hover:text-purple-400 transition">
               <RxInstagramLogo /> Instagram
             </a>
             <a className="flex items-center justify-center sm:justify-start gap-2 hover:text-purple-400 transition">

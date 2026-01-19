@@ -1,13 +1,21 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  Globe,
+  Code2,
+  Palette,
+  Megaphone,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
 
 type Service = {
   title: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
 };
 
 const services: Service[] = [
@@ -15,39 +23,55 @@ const services: Service[] = [
     title: "Website Development",
     description:
       "Modern, fast and responsive websites using latest technologies for better performance and user experience.",
-    icon: "/chatgpt.svg",
+    icon: <Globe size={34} />,
   },
   {
     title: "Web Applications",
     description:
       "Scalable and secure web apps tailored to your business needs with clean architecture.",
-    icon: "/chatgpt.svg",
+    icon: <Code2 size={34} />,
   },
   {
     title: "UI / UX Design",
     description:
       "Premium and intuitive designs that convert users into customers across all devices.",
-    icon: "/chatgpt.svg",
+    icon: <Palette size={34} />,
   },
   {
     title: "Social Media Promotion",
     description:
       "Result-driven Instagram, Facebook and brand promotions to grow your digital presence.",
-    icon: "/chatgpt.svg",
+    icon: <Megaphone size={34} />,
   },
   {
     title: "SEO Optimization",
     description:
       "Search engine optimization to improve visibility, traffic and online reach.",
-    icon: "/chatgpt.svg",
+    icon: <Search size={34} />,
   },
   {
     title: "Maintenance & Support",
     description:
       "Ongoing updates, security checks and technical support for smooth operations.",
-    icon: "/chatgpt.svg",
+    icon: <ShieldCheck size={34} />,
   },
 ];
+
+/* Animations */
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const stagger = {
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
 
 const ServicesPage: React.FC = () => {
   return (
@@ -60,7 +84,13 @@ const ServicesPage: React.FC = () => {
       "
     >
       {/* HEADER */}
-      <div className="relative z-30 max-w-6xl mx-auto text-center mb-16">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-30 max-w-6xl mx-auto text-center mb-16"
+      >
         <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
           Our Services
         </h1>
@@ -68,45 +98,46 @@ const ServicesPage: React.FC = () => {
           We provide complete digital solutions — from building powerful
           products to promoting your brand online.
         </p>
-      </div>
+      </motion.div>
 
       {/* SERVICES GRID */}
-      <div className="relative z-30 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-30 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
+            variants={fadeUp}
+            whileHover={{ y: -8, scale: 1.03 }}
             className="
               relative bg-[#0f0827]
               border border-purple-500/20
               rounded-2xl p-6
               hover:border-purple-400
               transition group
-              pointer-events-auto
             "
           >
-            {/* GLOW (NON-INTERACTIVE) */}
+            {/* Glow */}
             <div
               className="
-                absolute inset-0
-                rounded-2xl
+                absolute inset-0 rounded-2xl
                 bg-gradient-to-r from-purple-600/20 to-cyan-600/20
-                blur-xl
-                opacity-0
-                group-hover:opacity-100
-                transition
+                blur-xl opacity-0
+                group-hover:opacity-100 transition
                 pointer-events-none
               "
             />
 
-            {/* CARD CONTENT */}
+            {/* Content */}
             <div className="relative z-10">
-              <Image
-                src={service.icon}
-                alt={service.title}
-                width={40}
-                height={40}
-                className="mb-4"
-              />
+              <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 mb-4">
+                {service.icon}
+              </div>
+
               <h3 className="text-xl font-semibold text-purple-400 mb-3">
                 {service.title}
               </h3>
@@ -114,12 +145,18 @@ const ServicesPage: React.FC = () => {
                 {service.description}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* CTA */}
-      <div className="relative z-30 max-w-4xl mx-auto mt-24 text-center bg-[#0b061f] border border-purple-500/20 rounded-3xl p-10 pointer-events-auto">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="relative z-30 max-w-4xl mx-auto mt-24 text-center bg-[#0b061f] border border-purple-500/20 rounded-3xl p-10"
+      >
         <h2 className="text-3xl font-bold mb-4">
           Ready to grow your business?
         </h2>
@@ -132,7 +169,7 @@ const ServicesPage: React.FC = () => {
         >
           Contact Us
         </Link>
-      </div>
+      </motion.div>
 
       <div className="h-24" />
     </section>

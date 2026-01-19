@@ -100,8 +100,8 @@ const Navbar = () => {
           <Link href="/about" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
             About
           </Link>
-          <Link href="/skills" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
-            Skills
+          <Link href="/services" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
+            Services
           </Link>
           <Link href="/contact" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
             Contact

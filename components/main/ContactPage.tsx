@@ -124,7 +124,7 @@ ${message}
               variants={fadeLeft}
               className="space-y-3 text-gray-300"
             >
-              <p>📍 Jhunjhunu, Rajasthan</p>
+              <p>📍 Near Mahesh Talkies. Shiv Complex, Khemi Sati Road, Jhunjhunu, Rajasthan</p>
               <p>📧 primecoretechworks@gmail.com</p>
               <p>📞 +91 89490 93837</p>
             </motion.div>

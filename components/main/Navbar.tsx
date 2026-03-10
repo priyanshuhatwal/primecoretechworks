@@ -38,6 +38,9 @@ const Navbar = () => {
             <Link href="/contact" className="hover:text-purple-400 transition">
               Contact
             </Link>
+             <Link href="/pricing" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
+            Pricing
+          </Link>
           </div>
         </div>
 
@@ -105,6 +108,9 @@ const Navbar = () => {
           </Link>
           <Link href="/contact" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
             Contact
+          </Link>
+          <Link href="/pricing" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
+            Pricing
           </Link>
 
           {/* Socials mobile */}

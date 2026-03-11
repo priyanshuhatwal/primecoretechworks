@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="space-y-3">
             <h3 className="font-semibold text-white">Contact</h3>
             <p className="text-sm text-gray-400">
-              Near Mahesh Talkies. Shiv Complex, Khemi Sati Road, Jhunjhunu, Rajasthan
+             1st Floor Shiv Complex, Jhunjhunu, Rajasthan
             </p>
             <a
               href="mailto:primecoretechworks@gmail.com"

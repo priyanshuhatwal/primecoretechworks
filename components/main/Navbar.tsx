@@ -1,9 +1,9 @@
 "use client";
 
-import { Socials } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { Instagram, Facebook } from "lucide-react"; // Naye icons import kiye
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -38,32 +38,35 @@ const Navbar = () => {
             <Link href="/contact" className="hover:text-purple-400 transition">
               Contact
             </Link>
-             <Link href="/pricing" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
-            Pricing
-          </Link>
+            <Link href="/pricing" onClick={() => setOpen(false)} className="hover:text-purple-400 transition">
+              Pricing
+            </Link>
           </div>
         </div>
 
         {/* RIGHT */}
         <div className="flex items-center gap-5">
-          {/* Socials desktop */}
+          {/* Socials desktop (Instagram & Facebook) */}
           <div className="hidden sm:flex gap-4">
-            {Socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src={social.src}
-                  alt={social.name}
-                  width={22}
-                  height={22}
-                  className="hover:animate-spin"
-                />
-              </a>
-            ))}
+            {/* INSTAGRAM LINK */}
+            <a
+              href="https://www.instagram.com/primecore_techworks?igsh=eHg0bDE3aTBwMXBp" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-purple-400 transition"
+            >
+              <Instagram size={22} className="hover:animate-spin" />
+            </a>
+            
+            {/* FACEBOOK LINK */}
+            <a
+              href="https://www.facebook.com/share/1ChEz92LQa/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-purple-400 transition"
+            >
+              <Facebook size={22} className="hover:animate-spin" />
+            </a>
           </div>
 
           {/* HAMBURGER */}
@@ -113,24 +116,27 @@ const Navbar = () => {
             Pricing
           </Link>
 
-          {/* Socials mobile */}
-          <div className="flex gap-6 pt-4">
-            {Socials.map((social) => (
-              <a
-                key={social.name}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src={social.src}
-                  alt={social.name}
-                  width={20}
-                  height={20}
-                  className="hover:animate-spin"
-                />
-              </a>
-            ))}
+          {/* Socials mobile (Instagram & Facebook) */}
+          <div className="flex gap-6 pt-4 border-t border-[#7042f861] w-3/4 justify-center mt-2">
+            {/* INSTAGRAM LINK */}
+            <a
+              href="https://www.instagram.com/primecore_techworks?igsh=eHg0bDE3aTBwMXBp" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-purple-400 transition"
+            >
+              <Instagram size={24} className="hover:animate-spin" />
+            </a>
+
+            {/* FACEBOOK LINK */}
+            <a
+              href="https://www.facebook.com/share/1ChEz92LQa/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-purple-400 transition"
+            >
+              <Facebook size={24} className="hover:animate-spin" />
+            </a>
           </div>
         </div>
       </div>
